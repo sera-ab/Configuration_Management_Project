@@ -40,27 +40,7 @@
       become: yes
       become_method: sudo
       ignore_errors: yes
-
-    - name: Install httpd.service
-      hosts: localhost
-      tasks:
-        - name: Install httpd
-          yum:
-            name: httpd
-            state: present
-        - name: check httpd
-          service:
-            name: httpd
-            state: started
-        - name: port 80
-          firewalld:
-            serive: http
-            permanent: true
-            state: enabled
-        - name: restart firewalld
-          service:
-            name: firewalld
-            state: restart
-
+    
+    
 
 
