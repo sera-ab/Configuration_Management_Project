@@ -9,7 +9,7 @@
   tasks:
     - name: Install necessary packages
       packages: 
-        name: "{{item}}"
+        name: "{{ item }}"
         state: latest
       with_items:
         - wget 
