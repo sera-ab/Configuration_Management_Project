@@ -8,7 +8,7 @@
   connection: ssh
   tasks:
     - name: Install necessary packages
-      packages: 
+      package: 
         name: "{{ item }}"
         state: latest
       with_items:
