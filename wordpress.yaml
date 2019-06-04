@@ -1,0 +1,54 @@
+---
+- name: Install wordpress
+  hosts: web
+  become: yes
+  become_method: sudo
+  gather_facts: no
+  ignore_errors: true
+  connection: ssh
+  tasks:
+    - name: Install necessary packages
+      packages: 
+        name: "{{item}"
+        state: latest
+      with_items:
+        - wget 
+        - unzip 
+        - php-gd
+        - httpd 
+        - mysql 
+        - mariadb-server
+        - php
+        - php-mysql
+        - php-fpm
+      ignore_errors: true
+      
+    - name: Download wordpress packeage
+      get_url: 
+         url: "https://wordpress.org/latest.tar.gz"
+         dest: /tmp/
+
+    - name: Unzip wordpress file
+      unarchive: 
+        scr: "/tmp/latest.tar.gz"
+        dest: /var/www/html/wordpress
+      become: yes
+      become_method: sudo
+
+    - name: Move files to html folder
+      shell: "mv /var/www/html/wordpress/* /var/www/html"
+      become: yes
+      become_method: sudo
+      ignore_errors: yes
+
+
+    - name: Restart httpd
+      systemd: 
+        name: httpd
+        state: restarted
+        enabled: true
+      become: yes 
+      become_method: sudo
+
+
+
