@@ -7,3 +7,5 @@
         state: latest
       become: yes
       become_method: sudos
+    - name: Restart the system
+      command: "shutdown _r now"
