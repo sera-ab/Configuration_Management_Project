@@ -13,7 +13,6 @@
   hosts: "{{HOST}}"
   become: yes
   become_method: sudo
-  
   tasks:
     - name: Download 1 packeage
       get_url: 
