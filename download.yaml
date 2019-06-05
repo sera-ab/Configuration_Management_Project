@@ -1,11 +1,11 @@
 ---
 - name: Helps to download file
-  host: localhost
+  hosts: localhost
   become: yes
   become_method: sudo
   vars_prompt:
     - name: URL
-      prompt: "Give me the url:"
+      prompt: "Give me the url: "
       private: no
   tasks:
     - name: Download 1 packeage
