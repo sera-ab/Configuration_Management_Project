@@ -12,8 +12,8 @@
        region: us-east-2
        instance_tags:
          Name: Centos7
-      wait: yes
-      assign_public_ip: yes
+       wait: yes
+       assign_public_ip: yes
 
 
    - name: create Debian instance
@@ -26,9 +26,9 @@
        region: us-east-2
        instance_tags:
          Name: Debian
-      wait: yes
-      assign_public_ip: yes
-      user_data:
+       wait: yes
+       assign_public_ip: yes
+       user_data:
                 #!/bin/sh
                 sudo apt-get install python -y
                 sudo pip install boto
@@ -44,9 +44,9 @@
        region: us-east-2
        instance_tags:
          Name: Ubuntu
-      wait: yes
-      assign_public_ip: yes
-      user_data:
+       wait: yes
+       assign_public_ip: yes
+       user_data:
                 #!/bin/sh
                 sudo apt-get install python -y
                 sudo pip install boto
