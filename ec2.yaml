@@ -1,5 +1,5 @@
 ---
--name: vreate ec2 instance
+-name: create ec2 instance
 hosts: localhost
 tasks:
   - name: create instances
