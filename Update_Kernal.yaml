@@ -1,5 +1,5 @@
 ---
-- hosts:
+- hosts: web
   tasks:
     - name: updated kernel to latest 
       when: ansible_distribution=="CentOS" and ansible_distribution_major_version =="7"
@@ -8,5 +8,6 @@
         state: latest
       become: yes
       become_method: sudos
- #- name: Restart the system
- #    reboot:
+    - name: restart the system
+      when: ansible_distribution == "centos"
+      reboot:
