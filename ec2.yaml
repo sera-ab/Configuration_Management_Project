@@ -1,12 +1,12 @@
----
--name: create ec2 instance
-hosts: localhost
-tasks:
-  - name: create instances
-    ec2: 
-      key_name: Ansible_Tower
-      instance_type: t2.micro
-      image: ami-0f2b4fc905b0bd1f1
-      group: webserver
-      count: 3
-      vpc_subnet_id: subnet-094e0f1ff04a19356
+--- #sudo pip install boto 
+- name: create ec2 instance
+ hosts: localhost
+ tasks:
+   - name: create instances
+     ec2: 
+       key_name: Ansible_Tower
+       instance_type: t2.micro
+       image: ami-0f2b4fc905b0bd1f1
+       group: webserver
+       count: 3
+       vpc_subnet_id: subnet-094e0f1ff04a19356
