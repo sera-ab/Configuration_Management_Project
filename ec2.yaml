@@ -1,7 +1,7 @@
 --- #sudo pip install boto 
 - name: create ec2 instance
- hosts: all
- tasks:
+  hosts: localhost
+  tasks:
    - name: create instances
      ec2: 
        key_name: Ansible_Tower
