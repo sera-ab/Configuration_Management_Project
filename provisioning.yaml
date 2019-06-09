@@ -1,0 +1,17 @@
+---
+- name: provision ec2 instance
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: ping
+      ping:
+
+
+- name: install r1soft_agent.yaml
+  import_playbook: r1soft_agent.yaml
+- name: install naggiosxi_agent.yaml
+  import_playbook: nagiosxi_agent.yaml
+- name: install filebeat.yaml
+  import_playbook: filebeat.yaml
+    
