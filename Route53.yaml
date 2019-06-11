@@ -1,0 +1,13 @@
+- name: Create Record on  Route53 DNS service
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks: 
+    - route53:
+        state: "{{ state }}"  # present will create , absent will remove
+        zone: "{{ domain_name }}" # zone to moidfy the domain name
+        record: "{{ dns_record }}" # DNS record to create or delete
+        type: "{{type}}" # The type of the DNS
+        ttl: "{{ttl}}" # Time to Live is a setting for each DNS record that specifies how long a resolver is supposed to cache.
+        value: "{{ ip_value }}" # Value is your IP address.
+        wait: "{{wait}}" # Wait until the the changes have bean replicated to Route53.
