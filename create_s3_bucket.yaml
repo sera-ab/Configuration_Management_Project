@@ -1,0 +1,14 @@
+---
+- name: Create an s3 bcuket
+  hosts: localhost
+  vars_files:
+    - mybucket
+  src: /usr/local/mybucket  
+  tasks:
+      - name: Create an s3 bucket
+        aws_s3:
+            aws_access_key: "{{access_key}"
+            aws_secret_key: "{{secret_key}}"
+            bucket: "{{bucketname}}"
+            mode: create
+            permission: public-read
