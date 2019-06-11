@@ -60,8 +60,10 @@
 
     
       - name: Get key
-        shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
-      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"S
+        shell: "r1soft-setup --get-key http://35.222.166.217"
+      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
+
+        
 
 
   handlers:
