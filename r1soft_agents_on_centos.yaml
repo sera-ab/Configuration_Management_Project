@@ -46,22 +46,22 @@
 
     
 # this line is for centos 8
-    - block:
-      - name: Create a Repository
-        copy:
-          src: r1soft.repo
-          dest: /etc/yum.repos.d/r1soft.repo
-    
-      - name: Install r1soft agent
-        package:
-          name: serverbackup-enterprise-agent 
-          state: present
-        notify: R1SOFT_INSTALLED_ON_CENTOS_8
+ #   - block:
+  #    - name: Create a Repository
+   #     copy:
+    #      src: r1soft.repo
+     #     dest: /etc/yum.repos.d/r1soft.repo
+    #
+     # - name: Install r1soft agent
+      #  package:
+       #   name: serverbackup-enterprise-agent 
+        #  state: present
+       # notify: R1SOFT_INSTALLED_ON_CENTOS_8
 
     
-      - name: Get key
-        shell: "r1soft-setup --get-key http://35.222.166.217"
-      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
+     # - name: Get key
+      #  shell: "r1soft-setup --get-key http://35.222.166.217"
+     # when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
 
         
 
