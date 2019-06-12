@@ -39,10 +39,6 @@
         shell: "r1soft-setup --get-key http://r1soft.acirrustech.com"
       when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
   
-  
-  
-
-
 
     
 # this line is for centos 8
