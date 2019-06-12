@@ -1,0 +1,23 @@
+# ansible-playbook agent_install.yml --extra-vars server_ip="server_ip" --extra-vars agent_ip="agent_ip"
+---
+- name: Install r1soft-agent
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Create Repository
+      copy:
+        src: r1soft.repo
+        dest: /etc/yum.repos.d/r1soft.repo
+    # - name: yum repolist
+    #   command: "yum repolist"
+    - name: Install r1soft-agent package
+      package:
+        name: serverbackup-enterprise-agent
+        state: installed
+    - name: Start agent
+      systemd:
+        name: sbm-agent
+        state: restarted
+    - name:
+      command: "r1soft-setup --get-key http://35.222.166.217"
