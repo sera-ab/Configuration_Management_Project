@@ -1,5 +1,5 @@
 ---
-- name: Creates and s3 bcuket
+- name: Creates and delete s3 bcuket
   hosts: localhost 
   tasks:
       - name: s3 management
