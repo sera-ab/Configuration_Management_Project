@@ -7,14 +7,11 @@
     - name: DESTINATION
       prompt: "Give me the location to put: "
       private: no
-    - name: HOST
-      prompt: "which host?"
-      private: no
-  hosts: "{{HOST}}"
+  hosts: all
   become: yes
   become_method: sudo
   tasks:
-    - name: Download 1 packeage
-      get_url: 
-         url: "{{URL}}"
-         dest: "{{DESTINATION}}"
+    - name: Download 1 package
+      get_url:
+        url: "{{URL}}"
+        dest: "{{DESTINATION}}"
