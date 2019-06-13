@@ -1,7 +1,0 @@
---- # This is for creating a s3 bucket
-- name: Create an s3 bucket
-  hosts: all
-  s3_bucket:
-    bucket: "{{mybucket}}"
-    mode: "{{create}}"
-    permission: public-read
