@@ -5,4 +5,5 @@
       - name: s3 management
         aws_s3:
           bucket: "{{bucket}}"
-            mode: "{{mode}}"
+          mode: "{{mode}}"
+          region: "{{region}}"
