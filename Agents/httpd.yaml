@@ -1,5 +1,5 @@
     - name: Install httpd.service
-      hosts: localhost
+      hosts: all
       tasks:
         - name: Install httpd
           yum:
