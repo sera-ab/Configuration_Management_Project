@@ -1,5 +1,5 @@
 ---
-- name: TEst playbook for role
+- name: Test playbook for role
   Hosts: localhost
   become: yes
   become_user: root
